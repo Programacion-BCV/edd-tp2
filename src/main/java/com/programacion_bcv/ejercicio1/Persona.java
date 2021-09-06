@@ -7,12 +7,14 @@ public class Persona {
     private String apellido;
     private int documento;
     private LocalDate nacimiento;
+    private String signo;
 
     public Persona(String nombre, String apellido, int documento, LocalDate nacimiento) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.documento = documento;
         this.nacimiento = nacimiento;
+        this.signo = cualEsSigno(nacimiento.getDayOfMonth(), nacimiento.getMonthValue());
     }
 
     public String getNombre() {
@@ -45,12 +47,21 @@ public class Persona {
 
     public void setNacimiento(LocalDate nacimiento) {
         this.nacimiento = nacimiento;
+        this.signo = cualEsSigno(nacimiento.getDayOfMonth(), nacimiento.getMonthValue());
+    }
+
+    public String getSigno() {
+        return signo;
+    }
+
+    public void setSigno(String signo) {
+        this.signo = signo;
     }
 
     @Override
     public String toString() {
-        return "Persona [apellido=" + apellido + ", nombre=" + nombre + ", documento=" + documento + ", nacimiento="
-                + nacimiento + "]";
+        return "Persona [apellido=" + apellido + ", documento=" + documento + ", nacimiento=" + nacimiento + ", nombre="
+                + nombre + ", signo=" + signo + "]";
     }
 
     public String cualEsSigno(int dia, int mes) {
