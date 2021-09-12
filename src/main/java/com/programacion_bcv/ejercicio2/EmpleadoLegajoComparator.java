@@ -11,16 +11,16 @@ import java.util.Comparator;
  *
  * @author Mati
  */
-public class EmpleadoLegajoComparator implements Comparator<Empleado>{
+//public class EmpleadoLegajoComparator implements Comparator<Empleado>{
 
-    @Override
-    public int compare(Empleado o1, Empleado o2){
-        return o1.getLegajo().compareTo(o2.getLegajo());
-    }
+   // @Override
+    //public int compare(Empleado o1, Empleado o2){
+    //    return o1.getLegajo().compareTo(o2.getLegajo());
+   // }
 
    
 
     
     
     
-}
+//}
