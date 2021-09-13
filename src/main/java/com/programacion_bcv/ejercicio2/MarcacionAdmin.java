@@ -58,17 +58,8 @@ public class MarcacionAdmin extends MarcacionesAdminAbstract {
         LocalTime horaEntrada = LocalTime.of(7, 0, 0);
 
         for (Marcacion marcacion : marcacionesList) {
-            // if (marcacion.getFechaHora().getHour() > horaEntrada.getHour()) {
-            // resultado.add(marcacion);
-            // }else{
-            // if (marcacion.getFechaHora().getMinute() > horaEntrada.getMinute() &&
-            // marcacion.getFechaHora().f) {
-            // }
-            int resultado = Integer.compare(marcacion.getFechaHora().getHour(), horaEntrada.getHour());
-            if (resultado > 0) {
+            if (marcacion.getFechaHora().toLocalTime().isBefore(horaEntrada)) {
                 result.add(marcacion);
-            }else{
-                resultado= (Integer.compare(marcacion.getFechaHora().getMinute(),horaEntrada.getMinute())==1 &&)
             }
 
         }

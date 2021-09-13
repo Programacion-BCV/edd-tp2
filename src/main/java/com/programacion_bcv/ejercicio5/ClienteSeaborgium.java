@@ -28,7 +28,7 @@ public class ClienteSeaborgium {
                 d1_4.add(d3);
                 d1_4.add(d4);
 
-                Movimiento m1 = new Movimiento(4, LocalDate.now(), MovimientoTipo.ENTRADA,
+                Movimiento m1 = new Movimiento(4, LocalDate.now().plusDays(5), MovimientoTipo.ENTRADA,
                                 new Persona("Confalonieri", "Juan"), d1_4);
 
                 sAdmin.agregar(m1);
@@ -45,7 +45,7 @@ public class ClienteSeaborgium {
                 d5_6.add(d5);
                 d5_6.add(d6);
 
-                Movimiento m2 = new Movimiento(3, LocalDate.now(), MovimientoTipo.SALIDA,
+                Movimiento m2 = new Movimiento(3, LocalDate.now().plusDays(3), MovimientoTipo.SALIDA,
                                 new Persona("Confalonieri", "Franco"), d5_6);
                 sAdmin.agregar(m2);
                 // ----------------------------------------------------------
@@ -57,7 +57,7 @@ public class ClienteSeaborgium {
                 List<MovimientoDetalle> d7_7 = new ArrayList<MovimientoDetalle>();
                 d7_7.add(d7);
 
-                Movimiento m3 = new Movimiento(1, LocalDate.now(), MovimientoTipo.SALIDA,
+                Movimiento m3 = new Movimiento(1, LocalDate.now().plusDays(1), MovimientoTipo.SALIDA,
                                 new Persona("Confalonieri", "Fabian"), d7_7);
                 sAdmin.agregar(m3);
                 // ----------------------------------------------------------
@@ -69,7 +69,7 @@ public class ClienteSeaborgium {
                 List<MovimientoDetalle> d8_8 = new ArrayList<MovimientoDetalle>();
                 d8_8.add(d8);
 
-                Movimiento m4 = new Movimiento(2, LocalDate.now(), MovimientoTipo.SALIDA,
+                Movimiento m4 = new Movimiento(2, LocalDate.now().plusDays(4), MovimientoTipo.SALIDA,
                                 new Persona("Confalonieri", "Fabian"), d8_8);
                 sAdmin.agregar(m4);
                 // ----------------------------------------------------------
@@ -80,7 +80,7 @@ public class ClienteSeaborgium {
                 List<MovimientoDetalle> d9_9 = new ArrayList<MovimientoDetalle>();
                 d9_9.add(d9);
 
-                Movimiento m5 = new Movimiento(5, LocalDate.now(), MovimientoTipo.ENTRADA,
+                Movimiento m5 = new Movimiento(5, LocalDate.now().plusDays(2), MovimientoTipo.ENTRADA,
                                 new Persona("Confalonieri", "Franco"), d9_9);
                 sAdmin.agregar(m5);
 

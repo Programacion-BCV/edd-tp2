@@ -74,7 +74,7 @@ public class Producto {
 
     @Override
     public String toString() {
-        return "~Tipo:" + this.tipo + "\n" + "~Marca: " + this.marca + "\n" + "~Modelo: " + this.productoModelo;
+        return "~Tipo: " + this.tipo + "\n" + "~Marca: " + this.marca + "\n" + "~Modelo: " + this.productoModelo;
     }
 
 }
