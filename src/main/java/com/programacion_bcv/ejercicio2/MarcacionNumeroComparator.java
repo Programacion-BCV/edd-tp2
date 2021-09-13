@@ -5,14 +5,17 @@
  */
 package com.programacion_bcv.ejercicio2;
 
+import java.util.Comparator;
+
 /**
  *
  * @author Mati
  */
-class FechaHora {
+public class MarcacionNumeroComparator implements Comparator<Marcacion> {
 
-    int compareTo(FechaHora fechaHora) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    @Override
+    public int compare(Marcacion o1, Marcacion o2) {
+        return Integer.compare(o1.getNumero(),o2.getNumero());
     }
-    
+
 }

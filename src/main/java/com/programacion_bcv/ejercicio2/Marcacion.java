@@ -5,17 +5,19 @@
  */
 package com.programacion_bcv.ejercicio2;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author Mati
  */
-public class Marcacion {
+public class Marcacion implements Comparable<Marcacion> {
     private int numero;
     private Empleado empleado;
-    private FechaHora fechaHora;
+    private LocalDateTime fechaHora;
     private MarcacionTipo tipo;
 
-    public Marcacion(int numero, Empleado empleado, FechaHora fechaHora, MarcacionTipo tipo) {
+    public Marcacion(int numero, Empleado empleado, LocalDateTime fechaHora, MarcacionTipo tipo) {
         this.numero = numero;
         this.empleado = empleado;
         this.fechaHora = fechaHora;
@@ -38,11 +40,11 @@ public class Marcacion {
         this.empleado = empleado;
     }
 
-    public FechaHora getFechaHora() {
+    public LocalDateTime getFechaHora() {
         return fechaHora;
     }
 
-    public void setFechaHora(FechaHora fechaHora) {
+    public void setFechaHora(LocalDateTime fechaHora) {
         this.fechaHora = fechaHora;
     }
 
@@ -56,9 +58,13 @@ public class Marcacion {
 
     @Override
     public String toString() {
-        return "Marcacion{" + "numero=" + numero + ", empleado=" + empleado + ", fechaHora=" + fechaHora + ", tipo=" + tipo + '}';
+        return "----------------------"+"\n"+"Marcacion{" + "numero=" + numero + ", empleado=" + empleado + ", fechaHora=" + fechaHora + ", tipo="
+                + tipo + "}" +"\n"+"----------------------";
     }
-    
-    
-    
+
+    @Override
+    public int compareTo(Marcacion o) {
+        return this.fechaHora.compareTo(o.getFechaHora());
+    }
+
 }

@@ -100,7 +100,7 @@ public class Movimiento implements Comparable<Movimiento> {
 
     @Override
     public int compareTo(Movimiento o) {
-        return Integer.compare(this.nroMovimiento, o.nroMovimiento);
+        return this.fecha.compareTo(o.getFecha());
     }
 
 }

@@ -5,6 +5,9 @@
  */
 package com.programacion_bcv.ejercicio2;
 
+import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -12,41 +15,88 @@ import java.util.List;
  *
  * @author Mati
  */
-public class MarcacionAdmin extends MarcacionesAdminAbstract{
+public class MarcacionAdmin extends MarcacionesAdminAbstract {
 
     @Override
     public List<Empleado> empleados() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        int indice;
+        List<Empleado> resultado = new ArrayList();
+        for (Marcacion marcacion : marcacionesList) {
+            indice = resultado.indexOf(marcacion.getEmpleado());
+            if (indice == -1) {
+                resultado.add(marcacion.getEmpleado());
+            }
+        }
+        return resultado;
     }
 
     @Override
     public List<Marcacion> filtroPorEmpleado(Empleado empleado) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Marcacion> resultado = new ArrayList();
+        for (Marcacion marcacion : marcacionesList) {
+            if (marcacion.getEmpleado().equals(empleado)) {
+                resultado.add(marcacion);
+            }
+        }
+        return resultado;
     }
 
     @Override
     public List<Marcacion> filtroPorTipo(MarcacionTipo tipo) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Marcacion> resultado = new ArrayList();
+        for (Marcacion marcacion : marcacionesList) {
+            if (marcacion.getTipo().getDescripcion() == tipo.getDescripcion()) {
+                resultado.add(marcacion);
+            }
+        }
+        return resultado;
     }
 
     @Override
     public List<Marcacion> llegaronTarde() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<Marcacion> result = new ArrayList();
+        LocalTime horaEntrada = LocalTime.of(7, 0, 0);
+
+        for (Marcacion marcacion : marcacionesList) {
+            // if (marcacion.getFechaHora().getHour() > horaEntrada.getHour()) {
+            // resultado.add(marcacion);
+            // }else{
+            // if (marcacion.getFechaHora().getMinute() > horaEntrada.getMinute() &&
+            // marcacion.getFechaHora().f) {
+            // }
+            int resultado = Integer.compare(marcacion.getFechaHora().getHour(), horaEntrada.getHour());
+            if (resultado > 0) {
+                result.add(marcacion);
+            }else{
+                resultado= (Integer.compare(marcacion.getFechaHora().getMinute(),horaEntrada.getMinute())==1 &&)
+            }
+
+        }
+
+        return result;
     }
 
     @Override
     public void ordenar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Collections.sort(this.marcacionesList);
     }
 
     @Override
     public void ordenar(Comparator comparator) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        marcacionesList.sort(comparator);
     }
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String resultado = "";
+
+        for (Marcacion p : marcacionesList) {
+            resultado += p.toString() + "\n";
+        }
+
+        resultado = resultado.substring(0, resultado.lastIndexOf(","));
+
+        return resultado;
     }
-    
+
 }

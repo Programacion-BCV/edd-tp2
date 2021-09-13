@@ -14,6 +14,10 @@ public enum MarcacionTipo {
 
     private final String descripcion;
 
+    public String getDescripcion() {
+        return descripcion;
+    }
+    
     private MarcacionTipo(String descripcion) {
         this.descripcion = descripcion;
     }
