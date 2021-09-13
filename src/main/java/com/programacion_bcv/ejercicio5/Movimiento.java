@@ -3,7 +3,7 @@ package com.programacion_bcv.ejercicio5;
 import java.time.LocalDate;
 import java.util.List;
 
-public class Movimiento {
+public class Movimiento implements Comparable<Movimiento> {
     private int nroMovimiento;
     private LocalDate fecha;
     private MovimientoTipo tipo;
@@ -96,6 +96,11 @@ public class Movimiento {
                 + this.fecha + "\n" + "MovimientoTipo: " + this.tipo + "\n" + "Persona: " + "\n" + this.destinatario
                 + "\n" + "Lista de movimientos: " + "\n" + lista + "------------------------------" + "\n";
 
+    }
+
+    @Override
+    public int compareTo(Movimiento o) {
+        return Integer.compare(this.nroMovimiento, o.nroMovimiento);
     }
 
 }

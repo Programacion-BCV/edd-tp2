@@ -16,7 +16,7 @@ public abstract class StockAdminAbstract {
     }
 
     public void ordenar() {
-        // Collections.sort(movimientosList);
+        Collections.sort(movimientosList);
     }
 
     /** Devuelve todos los movimientos de salida de productos. */
