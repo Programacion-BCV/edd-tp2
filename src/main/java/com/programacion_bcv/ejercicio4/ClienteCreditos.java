@@ -53,58 +53,68 @@ public class ClienteCreditos {
             Credito c5 = new Credito(3,
                     new CreditoTipo("creditoConsumo", new BigDecimal(50000), new BigDecimal(950000), 1, 4,
                             ClienteTipoEnum.PERSONA, new BigDecimal(1.2)),
-                    new Cliente("Moore", "Nahuel", "12965784", ClienteTipoEnum.PERSONA), new BigDecimal(400000), 2,
+                    new Cliente("Moore", "Nahuel", "11965784", ClienteTipoEnum.PERSONA), new BigDecimal(400000), 2,
                     new Sucursal(5), new BigDecimal(400000 * 1.2));
             cAdmin.add(c5);
 
         } catch (Exception exc) {
             System.out.println(exc.toString());
         }
-
+        
         List<Credito> retorno = cAdmin.creditosSuperioresA(400001);
+        
+        
+        
+        System.out.println("===============================================");
+        System.out.println("Cantidad de creditos");
+        System.out.println(cAdmin.size());
+        
+        System.out.println("===============================================");
+        System.out.println("Obtener el credito ubicado en la  segunda posicion");
+        System.out.println(cAdmin.get(1));
+        
+        System.out.println("===============================================");
+        System.out.println("Obtener creditos de tipo Empresa Construccion");
+        System.out.println(cAdmin.creditosPorClienteTipo(ClienteTipoEnum.EMPRESACONSTRUCCION));
+        
+        System.out.println("===============================================");
+        System.out.println("Obtener creditos de tipo y sucursal");
+        cAdmin.creditosPorCreditoTipoySucursal(new CreditoTipo("creditoHipotecario", new BigDecimal(7000000), new BigDecimal(20000000), 2, 8,
+                            ClienteTipoEnum.PERSONA, new BigDecimal(1.3)),3);
+        
+        
+        System.out.println("===============================================");
+        System.out.println("Creditos inferiores a $500.200");
+        System.out.println(cAdmin.creditosInferioresA(500200));
+        
+        System.out.println("===============================================");
+        System.out.println("Creditos superiores a $700.000");
+        System.out.println(cAdmin.creditosSuperioresA(700000));        
+        
+        System.out.println("===============================================");
+        System.out.println("Ordenar por numero de credito");
+        cAdmin.ordenar();
+        System.out.println(cAdmin.toString());
+        
+        System.out.println("===============================================");
+        System.out.println("Ordenar por total a devolver");
+        cAdmin.ordenar(new CreditoTotalDevolverComparator());
+        System.out.println(cAdmin.toString());
+        
+        System.out.println("===============================================");
+        System.out.println("Ordenar por Cliente");
+        cAdmin.ordenar(new CreditoClienteComparator());
+        System.out.println(cAdmin.toString());
+        
+        System.out.println("===============================================");
+        System.out.println("Quitar y imprimir el credito ubicado en la segunda posicion");
+        System.out.println(cAdmin.remove(1));
+        
+        System.out.println("===============================================");
+        System.out.println("Imprimir todas las instancias de credito almacenadas");
+        System.out.println(cAdmin.toString());
+        
+        
 
-        // List<Credito> retorno2 = cAdmin.creditosPorCreditoTipoySucursal(new
-        // CreditoTipo("creditoHipotecario",
-        // new BigDecimal(7000000), new BigDecimal(20000000), 2, 8,
-        // ClienteTipoEnum.PERSONA, new BigDecimal(1.3)),
-        // new Sucursal(3));
-
-        // System.out.println(retorno.size());
-        // System.out.println("\n");
-        // for (Credito credito : retorno) {
-        // System.out.println(credito);
-
-        System.out.println(cAdmin);
-        // }
-
-        /*
-         * for (int i = 0; i < cAdmin.size(); i++) {
-         * System.out.println(cAdmin.get(i).toString()); }
-         * System.out.println("Cantidad de elementos en lista de creditos");
-         * System.out.println(cAdmin.size());
-         * 
-         * System.out.println("credito ubicado en la posicion 4");
-         * System.out.println(cAdmin.get(4));
-         * 
-         * System.out.println("Mostrar y quitar el elemento 2 de la lista");
-         * 
-         * System.out.println(cAdmin.remove(3));
-         * 
-         * System.out.println("Creditos de  tipo Comercio");
-         * 
-         * System.out.println(cAdmin.creditosPorClienteTipo(ClienteTipoEnum.COMERCIO));
-         * 
-         * System.out.println("");
-         * System.out.println(cAdmin.creditosInferioresA(600000));
-         * 
-         * System.out.println("Creditos ordenados por numero"); cAdmin.ordenar();
-         * 
-         * for (int i = 0; i < cAdmin.size(); i++) {
-         * System.out.println(cAdmin.get(i).toString()); }
-         * 
-         * cAdmin.ordenar(new CreditoOrdenar());
-         * System.out.println("Creditos ordenados por sucursal y numero");
-         * System.out.println(cAdmin.toString());
-         */
     }
 }
