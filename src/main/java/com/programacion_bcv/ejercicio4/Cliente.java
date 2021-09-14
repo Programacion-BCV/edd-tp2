@@ -1,9 +1,11 @@
 
 package com.programacion_bcv.ejercicio4;
 
+import com.programacion_bcv.ejercicio2.Marcacion;
+
 import java.util.Objects;
 
-public class Cliente {
+public class Cliente implements Comparable<Cliente> {
     private String apellido;
     private String nombre;
     private String documento;
@@ -49,12 +51,6 @@ public class Cliente {
     }
 
 
-
-    @Override
-    public String toString() {
-        return "Cliente{" + "Apellido=" + apellido + ", Nombre=" + nombre + ", Documento=" + documento + ", Tipo=" + tipo + '}';
-    }
-
     @Override
     public int hashCode() {
         int hash = 7;
@@ -80,6 +76,15 @@ public class Cliente {
         return true;
     }
 
-    
-    
+    @Override
+    public String toString() {
+        return "Cliente{" + "Apellido=" + apellido + ", Nombre=" + nombre + ", Documento=" + documento + ", Tipo=" + tipo + '}';
+    }
+
+
+    @Override
+    public int compareTo(Cliente cliente) {
+        return this.documento.compareTo(cliente.getDocumento());
+    }
+
 }

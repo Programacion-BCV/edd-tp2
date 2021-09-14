@@ -1,8 +1,8 @@
 package com.programacion_bcv.ejercicio5;
 
 public class MovimientoDetalle {
-    protected Producto producto;
-    protected int cantidad;
+    private Producto producto;
+    private int cantidad;
 
     public MovimientoDetalle(Producto producto, int cantidad) {
         this.producto = producto;

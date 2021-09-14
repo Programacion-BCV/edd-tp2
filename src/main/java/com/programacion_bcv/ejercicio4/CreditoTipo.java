@@ -80,10 +80,6 @@ public class CreditoTipo {
         this.tasaDeInteres = tasaDeInteres;
     }
 
-
-    
- 
-
     @Override
     public int hashCode() {
         int hash = 7;

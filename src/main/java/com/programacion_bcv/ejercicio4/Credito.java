@@ -1,6 +1,7 @@
 package com.programacion_bcv.ejercicio4;
 
 import java.math.BigDecimal;
+import java.util.Objects;
 
 public class Credito implements Comparable<Credito> {
 
@@ -12,14 +13,21 @@ public class Credito implements Comparable<Credito> {
     private Sucursal sucursal;
     private final BigDecimal totalADevolver;
 
-    public Credito(int numero, CreditoTipo tipo, Cliente cliente, BigDecimal montoAcordado, int plazoEnAnio, Sucursal sucursal, BigDecimal totalADevolver) {
+    public Credito(int numero, CreditoTipo tipo, Cliente cliente, BigDecimal montoAcordado, int plazoEnAnio,
+            Sucursal sucursal, BigDecimal totalADevolver) throws Exception {
+
+        if (!validarPrestamo(montoAcordado, plazoEnAnio, tipo)) {
+            throw new Exception(cliente.getNombre() + " " + cliente.getApellido()
+                    + " no cumple los requisitos para obtener un credito");
+        }
         this.numero = numero;
         this.tipo = tipo;
         this.cliente = cliente;
         this.montoAcordado = montoAcordado;
         this.plazoEnAnio = plazoEnAnio;
         this.sucursal = sucursal;
-        this.totalADevolver = montoAcordado.multiply(tipo.getTasaDeInteres());
+        this.totalADevolver = totalADevolver;
+
     }
 
     public int getNumero() {
@@ -50,7 +58,11 @@ public class Credito implements Comparable<Credito> {
         return montoAcordado;
     }
 
-    public void setMontoAcordado(BigDecimal montoAcordado) {
+    public void setMontoAcordado(BigDecimal montoAcordado) throws Exception {
+        if (!validarPrestamo(montoAcordado, this.plazoEnAnio, this.tipo)) {
+            throw new Exception(cliente.getNombre() + " " + cliente.getApellido()
+                    + " no cumple los requisitos para obtener un credito");
+        }
         this.montoAcordado = montoAcordado;
     }
 
@@ -58,7 +70,11 @@ public class Credito implements Comparable<Credito> {
         return plazoEnAnio;
     }
 
-    public void setPlazoEnAnio(int plazoEnAnio) {
+    public void setPlazoEnAnio(int plazoEnAnio) throws Exception {
+        if (!validarPrestamo(this.montoAcordado, plazoEnAnio, this.tipo)) {
+            throw new Exception(cliente.getNombre() + " " + cliente.getApellido()
+                    + " no cumple los requisitos para obtener un credito");
+        }
         this.plazoEnAnio = plazoEnAnio;
     }
 
@@ -70,38 +86,46 @@ public class Credito implements Comparable<Credito> {
         this.sucursal = sucursal;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + this.numero;
-        return hash;
+    public BigDecimal getTotalADevolver() {
+        return totalADevolver;
     }
 
     @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
+    public boolean equals(Object o) {
+        if (this == o)
             return true;
-        }
-        if (obj == null) {
+        if (!(o instanceof Credito))
             return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Credito other = (Credito) obj;
-        if (this.numero != other.numero) {
-            return false;
-        }
-        return true;
+        Credito credito = (Credito) o;
+        return getNumero() == credito.getNumero();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getNumero());
     }
 
     @Override
     public String toString() {
-        return "Credito{" + "numero=" + numero + ", tipo=" + tipo + ", cliente=" + cliente + ", montoAcordado=" + montoAcordado + ", plazoEnAnio=" + plazoEnAnio + ", sucursal=" + sucursal + ", totalADevolver=" + totalADevolver + '}';
+        return "Credito{" + "numero=" + numero + ", tipo=" + tipo + ", cliente=" + cliente + ", montoAcordado="
+                + montoAcordado + ", plazoEnAnio=" + plazoEnAnio + ", sucursal=" + sucursal + ", totalADevolver="
+                + totalADevolver + '}' + "\n";
+    }
+
+    public boolean validarPrestamo(BigDecimal montoAcordado, int plazoEnAnio, CreditoTipo tipo) {
+        boolean otorgado = true;
+
+        if (montoAcordado.compareTo(tipo.getMontoMinimo()) < 1 || montoAcordado.compareTo(tipo.getMontoMaximo()) > 0) {
+            otorgado = false;
+        } else if (plazoEnAnio < tipo.getAniosMinimo() || plazoEnAnio > tipo.getAniosMaximo()) {
+            otorgado = false;
+        }
+
+        return otorgado;
     }
 
     @Override
-    public int compareTo(Credito o) {
-        return new Integer(this.numero).compareTo(o.getNumero());
+    public int compareTo(Credito credito) {
+        return Integer.compare(this.numero, credito.getNumero());
     }
 }
