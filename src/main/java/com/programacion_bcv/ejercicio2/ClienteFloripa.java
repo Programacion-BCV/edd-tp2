@@ -63,52 +63,49 @@ public class ClienteFloripa {
         empleados.add(new Marcacion(2, emp4, fecha14, MarcacionTipo.ENTRADA));
         empleados.add(new Marcacion(13, emp5, fecha15, MarcacionTipo.SALIDA));
 
-        // System.out.println("-------------------------------------------------------------");
-        // System.out.println("Todos los empleados de los que se tiene registro de
-        // marcación");
-        // System.out.println("-------------------------------------------------------------");
-        // System.out.println(empleados.empleados());
+         System.out.println("-------------------------------------------------------------");
+         System.out.println("Todos los empleados de los que se tiene registro de marcación");
+         System.out.println("-------------------------------------------------------------");
+         System.out.println(empleados.empleados());
 
-        // System.out.println("--------------------------------------");
-        // System.out.println("Todas las marcaciones de un empleado");
-        // System.out.println("--------------------------------------");
-        // System.out.println(empleados.filtroPorEmpleado(emp5));
+         System.out.println("--------------------------------------");
+         System.out.println("Todas las marcaciones de un empleado");
+         System.out.println("--------------------------------------");
+         System.out.println(empleados.filtroPorEmpleado(emp5));
 
-        // System.out.println("----------------------------------------------------------");
-        // System.out.println("Todas las marcaciones del tipo especificado por
-        // parámetro");
-        // System.out.println("----------------------------------------------------------");
-        // System.out.println(empleados.filtroPorTipo(MarcacionTipo.SALIDA));
+         System.out.println("----------------------------------------------------------");
+         System.out.println("Todas las marcaciones del tipo especificado por parámetro");
+         System.out.println("----------------------------------------------------------");
+         System.out.println(empleados.filtroPorTipo(MarcacionTipo.SALIDA));
 
-        // System.out.println("--------------------------------------------------------");
-        // System.out.println("Las marcaciones realizadas fuera del horario de
-        // ingreso");
-        // System.out.println("--------------------------------------------------------");
-        // System.out.println(empleados.llegaronTarde());
+         System.out.println("--------------------------------------------------------");
+         System.out.println("Las marcaciones realizadas fuera del horario de ingreso");
+         System.out.println("--------------------------------------------------------");
+         System.out.println(empleados.llegaronTarde());
 
-        // System.out.println("--------------------------------------");
-        // System.out.println("Marcaciones ordenadas por fecha y hora");
-        // System.out.println("--------------------------------------");
-        // empleados.ordenar();
-        // System.out.println(empleados);
+         System.out.println("--------------------------------------");
+         System.out.println("Marcaciones ordenadas por fecha y hora");
+         System.out.println("--------------------------------------");
+         empleados.ordenar();
+         System.out.println(empleados);
 
-        // System.out.println("----------------------------------");
-        // System.out.println("Marcaciones ordenadas por Empleado");
-        // System.out.println("----------------------------------");
-        // empleados.ordenar(new MarcacionEmpleadoComparator());
-        // System.out.println(empleados);
+         System.out.println("----------------------------------");
+         System.out.println("Marcaciones ordenadas por Empleado");
+         System.out.println("----------------------------------");
+         empleados.ordenar(new MarcacionEmpleadoComparator());
+         System.out.println(empleados);
 
-        // System.out.println("----------------------------------");
-        // System.out.println("Marcaciones ordenadas por Tipo");
-        // System.out.println("----------------------------------");
-        // empleados.ordenar(new MarcacionTipoComparator());
-        // System.out.println(empleados);
+         System.out.println("----------------------------------");
+         System.out.println("Marcaciones ordenadas por Tipo");
+         System.out.println("----------------------------------");
+         empleados.ordenar(new MarcacionTipoComparator());
+         System.out.println(empleados);
 
-        // System.out.println("----------------------------------");
-        // System.out.println("Marcaciones ordenadas por Numero");
-        // System.out.println("----------------------------------");
-        // empleados.ordenar(new MarcacionNumeroComparator());
-        // System.out.println(empleados);
+         System.out.println("----------------------------------");
+         System.out.println("Marcaciones ordenadas por Numero");
+         System.out.println("----------------------------------");
+         empleados.ordenar(new MarcacionNumeroComparator());
+         System.out.println(empleados);
 
         System.out.println("------------------------------------------------------------------------------");
         System.out.println("Marcaciones ordenadas por Fecha y hora pero con comparator pasado por parametro");
