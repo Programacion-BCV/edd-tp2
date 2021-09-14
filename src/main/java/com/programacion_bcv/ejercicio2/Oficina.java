@@ -48,7 +48,7 @@ class Oficina {
 
     @Override
     public String toString() {
-        return "Oficina{" + "nombre=" + nombre + ", horaEntrada=" + horaEntrada + ", horaSalida=" + horaSalida + '}';
+        return ("\n" + "Nombre: " + nombre + "\n" + "Hora Entrada: " + horaEntrada + "\n" + "Hora Salida: " + horaSalida);
     }
     
     

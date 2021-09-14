@@ -55,10 +55,9 @@ public class MarcacionAdmin extends MarcacionesAdminAbstract {
     @Override
     public List<Marcacion> llegaronTarde() {
         List<Marcacion> result = new ArrayList();
-        LocalTime horaEntrada = LocalTime.of(7, 0, 0);
 
         for (Marcacion marcacion : marcacionesList) {
-            if (marcacion.getFechaHora().toLocalTime().isBefore(horaEntrada)) {
+            if (marcacion.getFechaHora().toLocalTime().isAfter(marcacion.getEmpleado().getOficina().getHoraEntrada())) {
                 result.add(marcacion);
             }
 
@@ -84,8 +83,6 @@ public class MarcacionAdmin extends MarcacionesAdminAbstract {
         for (Marcacion p : marcacionesList) {
             resultado += p.toString() + "\n";
         }
-
-        resultado = resultado.substring(0, resultado.lastIndexOf(","));
 
         return resultado;
     }

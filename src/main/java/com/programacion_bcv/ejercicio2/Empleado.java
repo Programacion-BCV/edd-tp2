@@ -12,14 +12,15 @@ import java.util.Objects;
  * @author Mati
  */
 public class Empleado implements Comparable<Empleado> {
+
     private int legajo;
     private String documento;
     private String apellido;
     private String nombre;
     private Oficina oficina;
-    
-    public Empleado(){
-        
+
+    public Empleado() {
+
     }
 
     public Empleado(int legajo, String documento, String apeliido, String nombre, Oficina oficina) {
@@ -97,14 +98,13 @@ public class Empleado implements Comparable<Empleado> {
 
     @Override
     public String toString() {
-        return ("Legajo: " + legajo + "\n" + "Documento: " + documento + "\n" + "Apellido: " +
-                apellido + "\n" + "Nombre: " + nombre + "\n" + "Oficina: " + oficina);
+        return ("\n" + "Legajo: " + legajo + "\n" + "Documento: " + documento + "\n" + "Apellido: "
+                + apellido + "\n" + "Nombre: " + nombre + "\n" + "------Oficina------" + oficina + "\n");
     }
-    
 
     @Override
     public int compareTo(Empleado o) {
         return Integer.compare(this.legajo, o.getLegajo());
     }
-  
+
 }

@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
  * @author Mati
  */
 public class Marcacion implements Comparable<Marcacion> {
+
     private int numero;
     private Empleado empleado;
     private LocalDateTime fechaHora;
@@ -58,8 +59,8 @@ public class Marcacion implements Comparable<Marcacion> {
 
     @Override
     public String toString() {
-        return "----------------------"+"\n"+"Marcacion{" + "numero=" + numero + ", empleado=" + empleado + ", fechaHora=" + fechaHora + ", tipo="
-                + tipo + "}" +"\n"+"----------------------";
+        return ("\n" + "-----Marcacion-----" + "\n" + "Numero: " + numero + "\n" + "-----Empleado-----" + empleado + "\n" + "Fecha Hora: " + fechaHora
+                + "\n" + "Tipo: " + tipo + "\n");
     }
 
     @Override
