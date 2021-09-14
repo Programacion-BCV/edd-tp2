@@ -29,8 +29,10 @@ public class ProductoCantidad {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof ProductoCantidad)) return false;
+        if (this == o)
+            return true;
+        if (!(o instanceof ProductoCantidad))
+            return false;
         ProductoCantidad that = (ProductoCantidad) o;
         return getProducto().equals(that.getProducto());
     }
@@ -43,6 +45,6 @@ public class ProductoCantidad {
     @Override
     public String toString() {
         return "~~~~~Producto~~~~~" + "\n" + this.producto + "\n" + "~Cantidad: " + this.cantidad + "\n"
-                + "~~~~~~~~~~~~~~~~~~" + "\n";
+                + "~~~~~~~~~~~~~~~~~~";
     }
 }

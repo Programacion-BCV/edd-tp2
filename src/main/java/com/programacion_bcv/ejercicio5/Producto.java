@@ -39,9 +39,7 @@ public class Producto {
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((marca == null) ? 0 : marca.hashCode());
         result = prime * result + ((productoModelo == null) ? 0 : productoModelo.hashCode());
-        result = prime * result + ((tipo == null) ? 0 : tipo.hashCode());
         return result;
     }
 
@@ -54,20 +52,10 @@ public class Producto {
         if (getClass() != obj.getClass())
             return false;
         Producto other = (Producto) obj;
-        if (marca == null) {
-            if (other.marca != null)
-                return false;
-        } else if (!marca.equals(other.marca))
-            return false;
         if (productoModelo == null) {
             if (other.productoModelo != null)
                 return false;
         } else if (!productoModelo.equals(other.productoModelo))
-            return false;
-        if (tipo == null) {
-            if (other.tipo != null)
-                return false;
-        } else if (!tipo.equals(other.tipo))
             return false;
         return true;
     }

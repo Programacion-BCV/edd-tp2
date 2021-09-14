@@ -5,22 +5,23 @@
  */
 package com.programacion_bcv.ejercicio2;
 
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
 /**
- *
  * @author Mati
  */
 public class MarcacionAdmin extends MarcacionesAdminAbstract {
+    public MarcacionAdmin() {
+        super();
+    }
 
     @Override
     public List<Empleado> empleados() {
         int indice;
-        List<Empleado> resultado = new ArrayList();
+        List<Empleado> resultado = new ArrayList<Empleado>();
         for (Marcacion marcacion : marcacionesList) {
             indice = resultado.indexOf(marcacion.getEmpleado());
             if (indice == -1) {
@@ -59,7 +60,8 @@ public class MarcacionAdmin extends MarcacionesAdminAbstract {
         for (Marcacion marcacion : marcacionesList) {
             if (marcacion.getTipo().equals(MarcacionTipo.ENTRADA)) {
 
-                if (marcacion.getFechaHora().toLocalTime().isAfter(marcacion.getEmpleado().getOficina().getHoraEntrada())) {
+                if (marcacion.getFechaHora().toLocalTime()
+                        .isAfter(marcacion.getEmpleado().getOficina().getHoraEntrada())) {
                     result.add(marcacion);
                 }
             }

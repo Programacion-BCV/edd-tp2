@@ -52,8 +52,8 @@ public class ProductoTipoCantidad {
 
     @Override
     public String toString() {
-        return "~~~~~~~~~~~~~~~~~~" + "\n" + "~Tipo de producto: " + this.tipo + "\n" + "~Cantidad: " + this.cantidad + "\n"
-                + "~~~~~~~~~~~~~~~~~~";
+        return "~~~~~~~~~~~~~~~~~~" + "\n" + "~Tipo de producto: " + this.tipo + "\n" + "~Cantidad: " + this.cantidad
+                + "\n" + "~~~~~~~~~~~~~~~~~~";
     }
 
 }
