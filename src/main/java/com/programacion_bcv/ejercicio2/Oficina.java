@@ -6,12 +6,14 @@
 package com.programacion_bcv.ejercicio2;
 
 import java.time.LocalTime;
+import java.util.Objects;
 
 /**
  *
  * @author Mati
  */
 class Oficina {
+
     private String nombre;
     private LocalTime horaEntrada;
     private LocalTime horaSalida;
@@ -47,9 +49,34 @@ class Oficina {
     }
 
     @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.nombre);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Oficina other = (Oficina) obj;
+        if (!Objects.equals(this.nombre, other.nombre)) {
+            return false;
+        }
+        return true;
+    }
+
+    
+    @Override
     public String toString() {
         return ("\n" + "Nombre: " + nombre + "\n" + "Hora Entrada: " + horaEntrada + "\n" + "Hora Salida: " + horaSalida);
     }
-    
-    
+
 }

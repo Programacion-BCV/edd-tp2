@@ -58,6 +58,31 @@ public class Marcacion implements Comparable<Marcacion> {
     }
 
     @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 41 * hash + this.numero;
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Marcacion other = (Marcacion) obj;
+        if (this.numero != other.numero) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
     public String toString() {
         return ("\n" + "-----Marcacion-----" + "\n" + "Numero: " + numero + "\n" + "-----Empleado-----" + empleado + "\n" + "Fecha Hora: " + fechaHora
                 + "\n" + "Tipo: " + tipo + "\n");

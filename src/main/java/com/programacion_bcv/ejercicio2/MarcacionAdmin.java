@@ -57,8 +57,11 @@ public class MarcacionAdmin extends MarcacionesAdminAbstract {
         List<Marcacion> result = new ArrayList();
 
         for (Marcacion marcacion : marcacionesList) {
-            if (marcacion.getFechaHora().toLocalTime().isAfter(marcacion.getEmpleado().getOficina().getHoraEntrada())) {
-                result.add(marcacion);
+            if (marcacion.getTipo().equals(MarcacionTipo.ENTRADA)) {
+
+                if (marcacion.getFechaHora().toLocalTime().isAfter(marcacion.getEmpleado().getOficina().getHoraEntrada())) {
+                    result.add(marcacion);
+                }
             }
 
         }
